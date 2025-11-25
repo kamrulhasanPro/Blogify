@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`antialiased max-w-7xl mx-auto`}
+        className={`antialiased max-w-7xl mx-auto !bg-primary/5`}
       >
         <Navbar />
         <main className="min-h-[calc(100vh-80px-278px)]">{children}</main>

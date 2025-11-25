@@ -17,3 +17,7 @@
 .my_btn_outline {
   @apply btn btn-outline btn-primary border-3 hover:text-white shadow-none;
 }
+
+.swiper-button-prev{
+  @apply !-left-6 z-20 
+}

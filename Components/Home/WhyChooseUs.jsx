@@ -72,6 +72,7 @@ const WhyChooseUs = () => {
         <div className="flex-3 space-y-4">
           {whyChooseUs.map((item) => (
             <div
+            key={item.id}
               className={`bg-white flex flex-col p-3 rounded-sm gap-2  shadow-md hover:shadow-lg transition`}
             >
               <div

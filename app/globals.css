@@ -8,4 +8,12 @@
   default: true;
   --color-primary: #22a7f0;
   --color-secondary: #03002e;
+  --color-secondary-content: #444444;
+}
+
+.my_btn {
+  @apply bg-primary text-white shadow-none py-1 px-4 rounded-sm hover:brightness-110 transition-all duration-200;
+}
+.my_btn_outline {
+  @apply btn btn-outline btn-primary border-3 hover:text-white shadow-none;
 }

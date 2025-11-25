@@ -1,7 +1,12 @@
+import Features from "@/Components/Home/Features";
+import Hero from "@/Components/Home/Hero";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <p>kamrul</p>
+    <div>
+      <Hero/>
+      <Features/>
+    </div>
   );
 }

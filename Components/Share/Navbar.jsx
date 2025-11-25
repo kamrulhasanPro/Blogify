@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-white/50 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,7 +55,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href={'/'} className="bg-primary text-white shadow-none py-1 px-4 rounded-sm hover:brightness-110 transition-all duration-200">Login</Link>
+          <Link href={'/'} className="my_btn">Login</Link>
         </div>
       </div>
     </>

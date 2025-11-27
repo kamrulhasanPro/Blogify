@@ -1,18 +1,57 @@
+"use client";
+import { BiSolidCategory } from "react-icons/bi";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoPerson } from "react-icons/io5";
+import { MdDateRange } from "react-icons/md";
+import Link from "next/link";
 import React from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { axiosPublic } from "@/hook/axiosPublic";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
-const ManageBlogCard = ({ blog, handleRemove}) => {
-    const { _id, title, shortDescription, writer, createdAt } = blog;
+const ManageBlogCard = ({ blog }) => {
+  const queryClient = useQueryClient();
+  const { _id, title, shortDescription, writer, createdAt } = blog;
+  const { mutateAsync } = useMutation({
+    mutationFn: async (_id) => await axiosPublic.delete(`/blogs/${_id}`),
+    onSuccess: () => {
+      toast.success("Delete Success");
+      Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+      queryClient.invalidateQueries(["myBlogs"]);
+    },
+  });
+
+  const handleRemove = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await mutateAsync(_id);
+      }
+    });
+  };
   const btnStyle =
     "py-1 px-1.5 flex items-center justify-center rounded-full gap-1";
 
   const actionBtn = (
     <>
-      <Link href={`blogs/${_id}`} className="btn btn-success text-white">
+      <Link href={`blogs/${_id}`} className="my_btn !bg-green-500">
         Details
       </Link>
       <button
         onClick={handleRemove}
-        className="btn btn-secondary bg-red-400 text-white"
+        className="my_btn !bg-red-500"
       >
         Remove
       </button>
@@ -40,19 +79,16 @@ const ManageBlogCard = ({ blog, handleRemove}) => {
           </div>
           <p className="mt-2">
             {shortDescription}
-            {/* {description.length > 100 && (
-                  <span className="text-indigo-600 hover:underline"> ...More</span>
-                )} */}
           </p>
         </div>
 
         {/* action */}
         <div className="md:flex-1 flex md:justify-end">
-          <div className="flex flex-col bg-white p-2 rounded-lg gap-2 ">
+          {/* <div className="hidden md:flex flex-col bg-white p-2 rounded-lg gap-2 ">
             {actionBtn}
-          </div>
+          </div> */}
 
-          <div className="space-x-2 md:hidden">{actionBtn}</div>
+          <div className="space-x-2">{actionBtn}</div>
         </div>
       </div>
     </div>

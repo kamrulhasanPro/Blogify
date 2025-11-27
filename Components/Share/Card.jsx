@@ -3,13 +3,13 @@ import Link from "next/link";
 import React from "react";
 import { TiEye } from "react-icons/ti";
 
-const Card = ({ feature }) => {
+const Card = ({ blog }) => {
   return (
     <>
-      <div className="flex flex-col gap-2 shadow-md rounded-xl overflow-hidden bg-white">
+      <div className="flex flex-col gap-2 shadow-md rounded-xl overflow-hidden bg-white h-full">
         <figure className="h-50 overflow-hidden ">
           <img
-            src={feature.image}
+            src={blog.image}
             height={"100%"}
             width={"100%"}
             alt="banner"
@@ -25,19 +25,26 @@ const Card = ({ feature }) => {
           </div>
 
           {/* title */}
-          <Link href={'/blogs/7'} className="text-xl text-secondary font-bold mb-1">
-            {feature.title}
+          <Link
+            href={"/blogs/7"}
+            className="text-xl text-secondary font-bold mb-1"
+          >
+            {blog.title}
           </Link>
 
           {/* short description */}
-          <p className="mb-3 text-gray-400 grow">{feature.shortDescription}</p>
+          <p className="mb-3 text-gray-400 grow">
+            {blog.shortDescription}
+          </p>
 
           {/* cta */}
           <div className="flex justify-between items-center mt-3">
-            <Link href={`/blogs/${feature._id}`} className="my_btn_outline">Read More</Link>
+            <Link href={`/blogs/${blog._id}`} className="my_btn_outline">
+              Read More
+            </Link>
             <div className="flex items-center justify-center gap-2">
-              <TiEye fill="green"/>
-              <span>{feature.views}</span>
+              <TiEye fill="green" />
+              <span>{blog.views}</span>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+'use server'
 import ManageBlog from "@/Components/ManageBlog/ManageBlog";
 import LoadingSpinner from "@/Components/Share/LoadingSpinner";
 import MyContainer from "@/Components/Share/MyContainer";
@@ -6,6 +7,7 @@ import { axiosPublic } from "@/hook/axiosPublic";
 import { authOptions } from "@/lib/auth";
 import { useQuery } from "@tanstack/react-query";
 import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 import React from "react";
 

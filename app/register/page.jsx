@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
+import GoogleBtnProvider from "@/Components/Share/GoogleBtnProvider";
 
 const Register = () => {
   const {
@@ -39,10 +40,9 @@ const Register = () => {
         </h2>
         <p className="mb-4 text-secondary font-medium">Create a new account</p>
         {/* Google */}
-        <button className="btn bg-white btn-block text-black border-[#e5e5e5]">
-          <FcGoogle size={26} />
-          Login with Google
-        </button>
+        <GoogleBtnProvider/>
+
+
         <div className="divider">Or Login With Email</div>
 
         {/* login form */}

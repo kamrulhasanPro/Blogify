@@ -12,7 +12,7 @@
 }
 
 .my_btn {
-  @apply bg-primary text-white shadow-none py-1 px-4 rounded-sm hover:brightness-110 transition-all duration-200 cursor-pointer;
+  @apply bg-primary text-white shadow-none py-1.5 px-4 rounded-sm hover:brightness-110 transition-all duration-200 cursor-pointer;
 }
 .my_btn_outline {
   @apply btn btn-outline btn-primary border-3 hover:text-white shadow-none;
@@ -24,4 +24,8 @@
 
 .my_input {
   @apply w-full input focus:border-none text-lg outline-primary;
+}
+
+.input_form{
+  @apply w-full p-3 mt-1 border border-gray-300 rounded-lg  focus:outline-blue-300
 }

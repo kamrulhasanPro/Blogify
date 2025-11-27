@@ -32,7 +32,7 @@ const Features = () => {
       <MyTitle>Featured Blogs</MyTitle>
 
       {/* grid layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* first blog */}
         <div className="hidden md:flex flex-col md:flex-row gap-4 items-center justify-center col-span-auto md:col-span-2 lg:col-span-3">
           <figure className="flex-1 h-72 overflow-hidden rounded-2xl">

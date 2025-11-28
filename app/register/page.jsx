@@ -2,14 +2,15 @@
 import { axiosPublic } from "@/hook/axiosPublic";
 import MyContainer from "@/Components/Share/MyContainer";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 import GoogleBtnProvider from "@/Components/Share/GoogleBtnProvider";
+import { signOut } from "next-auth/react";
 
 const Register = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -23,9 +24,10 @@ const Register = () => {
       const res = await axiosPublic.post("/register", data);
       console.log(res);
       if (res.data.insertedId) {
+        signOut({redirect: false})
         reset();
         toast.success("Register Success please login");
-        redirect("/");
+        router.push('/login')
       }
     } catch (error) {
       console.log(error);

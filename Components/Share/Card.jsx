@@ -20,7 +20,7 @@ const Card = ({ blog }) => {
           {/* category */}
           <div className="mb-3">
             <span className="text-white bg-primary rounded-full px-5 py-0.5">
-              Design
+              {blog?.writer?.name}
             </span>
           </div>
 

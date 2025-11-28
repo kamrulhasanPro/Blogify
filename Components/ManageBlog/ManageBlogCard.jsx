@@ -18,10 +18,10 @@ const ManageBlogCard = ({ blog }) => {
     onSuccess: () => {
       toast.success("Delete Success");
       Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
       queryClient.invalidateQueries(["myBlogs"]);
     },
   });
@@ -49,10 +49,7 @@ const ManageBlogCard = ({ blog }) => {
       <Link href={`blogs/${_id}`} className="my_btn !bg-green-500">
         Details
       </Link>
-      <button
-        onClick={handleRemove}
-        className="my_btn !bg-red-500"
-      >
+      <button onClick={handleRemove} className="my_btn !bg-red-500">
         Remove
       </button>
     </>
@@ -77,9 +74,7 @@ const ManageBlogCard = ({ blog }) => {
               {new Date(createdAt).toLocaleDateString()}
             </button>
           </div>
-          <p className="mt-2">
-            {shortDescription}
-          </p>
+          <p className="mt-2">{shortDescription}</p>
         </div>
 
         {/* action */}

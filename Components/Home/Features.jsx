@@ -6,6 +6,7 @@ import Card from "../Share/Card";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "@/hook/axiosPublic";
 import LoadingSpinner from "../Share/LoadingSpinner";
+import Link from "next/link";
 
 const Features = () => {
   const { data: featureBlogs = [], isLoading } = useQuery({
@@ -33,7 +34,7 @@ const Features = () => {
             </figure>
             <div className="flex-1">
               {/* title */}
-              <h3 className="text-2xl text-secondary mb-2">
+              <h3 className="text-2xl text-secondary font-semibold mb-2">
                 {featureBlogs[0].title}
               </h3>
 
@@ -43,7 +44,7 @@ const Features = () => {
               </p>
 
               {/* cta */}
-              <button className="my_btn_outline">Read More</button>
+              <Link href={`/blogs/${featureBlogs[0]._id}`} className="my_btn_outline">Read More</Link>
             </div>
           </div>
 

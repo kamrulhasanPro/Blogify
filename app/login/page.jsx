@@ -97,7 +97,7 @@ const Login = () => {
               Remember me
             </label>
 
-            <p>Forget Me</p>
+            <p className="text-indigo-500 hover:border-b cursor-pointer">Forget password</p>
           </div>
 
           {/* button */}

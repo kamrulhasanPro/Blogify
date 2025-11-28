@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import MyLink from "./MyLink";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import ProfileDropdown from "./ProfileDropdown";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -20,16 +21,9 @@ const Navbar = () => {
       <li>
         <MyLink href={"/about"}>About</MyLink>
       </li>
-      {status === "authenticated" && (
-        <>
-          <li>
-            <MyLink href={"/manage-blog"}>Your Blog</MyLink>
-          </li>
-          <li>
-            <MyLink href={"/add-blog"}>Add blog</MyLink>
-          </li>
-        </>
-      )}
+      <li>
+        <MyLink href={"/terms-and-condition"}>Terms & Condition</MyLink>
+      </li>
     </>
   );
 
@@ -69,12 +63,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {status === "authenticated" ? (
-            <button
-              onClick={() => signOut({ redirect: false })}
-              className="my_btn !bg-red-500 text-white"
-            >
-              Logout
-            </button>
+            <ProfileDropdown />
           ) : (
             <Link href={"/login"} className="my_btn">
               Login

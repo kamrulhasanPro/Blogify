@@ -4,14 +4,23 @@ import { AiFillStar } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import MyContainer from "@/Components/Share/MyContainer";
 import MyTitle from "@/Components/Share/MyTitle";
+import { IoArrowBackCircle } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const BlogDetails = ({ blog }) => {
   if (!blog) return <p>No Blog Found!</p>;
-
+  const router = useRouter()
   return (
     <MyContainer className="">
       {/* Title */}
-      <MyTitle>{blog.title}</MyTitle>
+      <div className="flex items-center gap-4">
+        <IoArrowBackCircle
+        onClick={() => router.back()}
+          size={30}
+          className="text-primary cursor-pointer hover:brightness-110 duration-150"
+        />
+        <MyTitle className={"text-left !mb-2"}>{blog.title}</MyTitle>
+      </div>
 
       {/* Writer & Meta Info */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -51,7 +60,6 @@ const BlogDetails = ({ blog }) => {
       <div className="w-full mb-8">
         <img
           src={blog.image}
-
           alt={blog.title}
           className="w-full rounded-xl shadow-md object-cover"
         />

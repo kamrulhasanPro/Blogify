@@ -23,6 +23,29 @@ Users can **register, login, create blogs, view featured blogs**, and perform CR
 
 ---
 
+## Public Routes
+
+| Route                  | File/Folder Path              | Description                                         |
+|------------------------|------------------------------|-----------------------------------------------------|
+| `/`                    | `app/page.js`                 | Home page showing featured blogs and latest posts  |
+| `/login`               | `app/login/page.js`           | User login page                                    |
+| `/register`            | `app/register/page.js`        | User registration page                              |
+| `/blogs`               | `app/blogs/page.js`           | All blogs listing page                               |
+| `/blog/[id]`           | `app/blog/[id]/page.js`       | Blog details page by ID                             |
+| `/about`               | `app/about/page.js`           | About page                                         |
+| `/terms-and-condition`             | `app/terms-and-condition/page.js`         | Terms & Condition page                                       |
+
+---
+
+## Protected Routes (require authentication)
+
+| Route                  | File/Folder Path                 | Description                                         |
+|------------------------|---------------------------------|-----------------------------------------------------|
+| `/add-blog`           | `app/add-blog/page.js`         | Post Own Blog               |
+| `/manage-blog`    | `app/manage-blog/page.js`  | Manage all own blog (view, delete)
+
+---
+
 ## Tech Stack
 
 - **Frontend:** Next.js, Axios, TailwindCSS

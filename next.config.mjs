@@ -9,6 +9,7 @@ const nextConfig = {
         hostname: "lh3.googleusercontent.com",
       },
     ],
+    // domains: ['https://blogify-backend-3r975wi6w-kamrulhasanpros-projects.vercel.app', 'i.postimg.cc']
   },
 };
 

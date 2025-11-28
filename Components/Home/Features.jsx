@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "@/hook/axiosPublic";
 import LoadingSpinner from "../Share/LoadingSpinner";
 import Link from "next/link";
+import Image from "next/image";
 
 const Features = () => {
   const { data: featureBlogs = [], isLoading } = useQuery({

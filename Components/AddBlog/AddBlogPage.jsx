@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import MyContainer from "../Share/MyContainer";
 import MyTitle from "../Share/MyTitle";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { axiosPublic } from "@/hook/axiosPublic";
 import { toast } from "react-toastify";
-import LoadingSpinner from "../Share/LoadingSpinner";
 import Swal from "sweetalert2";
 
 const AddBlogForm = ({ session }) => {
+  const queryClient = useQueryClient()
   const {
     register,
     handleSubmit,
@@ -28,6 +28,7 @@ const AddBlogForm = ({ session }) => {
         icon: "success",
       });
       toast.success("Post Success");
+      queryClient.invalidateQueries(['myBlogs'])
     },
     onError: () => toast.error("Something Error."),
   });
@@ -127,6 +128,7 @@ const AddBlogForm = ({ session }) => {
             <label className="font-semibold text-gray-700">Writer Name</label>
             <input
               value={session.user.name}
+              readOnly
               {...register("name", { required: true })}
               type="text"
               placeholder="Writer name..."
@@ -137,6 +139,7 @@ const AddBlogForm = ({ session }) => {
           <div>
             <label className="font-semibold text-gray-700">Writer Email</label>
             <input
+            readOnly
               value={session.user.email}
               {...register("email", { required: true })}
               type="email"
@@ -152,7 +155,8 @@ const AddBlogForm = ({ session }) => {
             Writer Avatar URL
           </label>
           <input
-            defaultValue={session.user.image}
+            value={session.user.image}
+            readOnly
             {...register("avatar", { required: true })}
             type="url"
             placeholder="Image URL..."

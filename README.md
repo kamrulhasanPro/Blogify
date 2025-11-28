@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blogify
 
-## Getting Started
+A modern blogging platform built with **Next.js** (frontend) and **Express + MongoDB** (backend).  
+Users can **register, login, create blogs, view featured blogs**, and perform CRUD operations. The backend is deployed on **Vercel**.
 
-First, run the development server:
+---
+
+## Features
+
+- User authentication (register/login) with hashed passwords.
+- Create, read, update, and delete blogs.
+- Fetch featured blogs sorted by rating.
+- Search blogs by title.
+- Responsive frontend with optimized images.
+- Google OAuth integration and Credential Authentication.
+
+---
+
+## Live Links
+
+- **Frontend:** [https://blogify-lilac-two.vercel.app](https://blogify-lilac-two.vercel.app)
+- **Backend:** [https://blogify-backend-ashen.vercel.app](https://blogify-backend-ashen.vercel.app)
+
+---
+
+## Tech Stack
+
+- **Frontend:** Next.js, Axios, TailwindCSS
+- **Authentication:** NextAuth.js
+- **Backend:** Express.js, MongoDB, bcrypt, cors
+- **Deployment:** Vercel (backend & frontend)
+- **Environment Variables:** `.env` file
+
+---
+
+## Setup & Installation
+
+### 1. Clone the repository Frontend
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/kamrulhasanPro/Blogify.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+cd blogify
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a .env file in the frontend folder and include:
 
-## Learn More
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:2000
+NEXTAUTH_SECRET=your_nextauth_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Clone the repository Backend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/kamrulhasanPro/Blogify-Backend.git
+cd blogify-backend
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then
 
-## Deploy on Vercel
+```bash
+cd blogify-backend
+npm install
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a .env file in the backend folder and include:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+MONGODB_URI=your_mongodb_connection_string
+```

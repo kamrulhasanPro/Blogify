@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const axiosPublic = axios.create({
-  baseURL: "https://blogify-backend-ashen.vercel.app",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
